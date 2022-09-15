@@ -1,4 +1,23 @@
-# Octopus Appchain Node Template
+# Portalverse
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-orange.svg)](#LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blue.svg)](CONTRIBUTING.md)
+
+<p align="center">
+  <img src="/portalverse.png">
+</p>
+
+[Portalverse](https://www.portalverse.net/) is a decentralized cloud gaming and rendering network for immersive metaverses where everyone can access at any time, from any device and anywhere.
+
+
+## Related Projects
+
+- [Portalverse Pallets](https://github.com/Portalverse-Network/portalverse-pallets) is a set of [Substrate](https://substrate.dev) pallets of Portalverse.
+- [Octopus Network](https://github.com/octopus-network) powers us.
+
+## License
+[APACHE2-LICENSE](LICENSE)
+
 
 ### Rust Setup
 
