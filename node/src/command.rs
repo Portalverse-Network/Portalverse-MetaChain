@@ -4,7 +4,7 @@ use crate::{
 	cli::{Cli, Subcommand},
 	service::{self, new_partial, ExecutorDispatch, FullClient},
 };
-use appchain_barnacle_runtime::{Block, ExistentialDeposit};
+use portalverse_runtime::{Block, ExistentialDeposit};
 use frame_benchmarking_cli::{BenchmarkCmd, ExtrinsicFactory, SUBSTRATE_REFERENCE_HARDWARE};
 use sc_cli::{ChainSpec, RuntimeVersion, SubstrateCli};
 use sc_service::PartialComponents;
@@ -49,7 +49,7 @@ impl SubstrateCli for Cli {
 	}
 
 	fn native_runtime_version(_: &Box<dyn ChainSpec>) -> &'static RuntimeVersion {
-		&appchain_barnacle_runtime::VERSION
+		&portalverse_runtime::VERSION
 	}
 }
 

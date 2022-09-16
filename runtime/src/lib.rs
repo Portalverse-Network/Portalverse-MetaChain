@@ -125,8 +125,8 @@ pub mod opaque {
 // https://docs.substrate.io/main-docs/build/upgrade#runtime-versioning
 #[sp_version::runtime_version]
 pub const VERSION: RuntimeVersion = RuntimeVersion {
-	spec_name: create_runtime_str!("appchain-barnacle"),
-	impl_name: create_runtime_str!("appchain-barnacle"),
+	spec_name: create_runtime_str!("portalverse"),
+	impl_name: create_runtime_str!("portalverse"),
 	authoring_version: 1,
 	// The version of the runtime specification. A full node will not attempt to use its native
 	//   runtime in substitute for the on-chain Wasm runtime unless all of `spec_name`,
@@ -689,11 +689,6 @@ impl pallet_sudo::Config for Runtime {
 	type Call = Call;
 }
 
-impl pallet_portalverse_nexus::Config for Runtime {
-	type Event = Event;
-	type Weight = ();
-}
-
 // Create the runtime by composing the FRAME pallets that were previously configured.
 construct_runtime!(
 	pub struct Runtime
@@ -727,7 +722,6 @@ construct_runtime!(
 		Beefy: pallet_beefy,
 		MmrLeaf: pallet_beefy_mmr,
 		Sudo: pallet_sudo,
-		Nexus: pallet_portalverse_nexus,
 	}
 );
 

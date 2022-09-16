@@ -32,7 +32,7 @@
 
 use std::sync::Arc;
 
-use appchain_barnacle_runtime::{opaque::Block, AccountId, Balance, BlockNumber, Hash, Index};
+use portalverse_runtime::{opaque::Block, AccountId, Balance, BlockNumber, Hash, Index};
 use jsonrpsee::RpcModule;
 use sc_client_api::AuxStore;
 use sc_consensus_babe::{Config, Epoch};

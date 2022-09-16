@@ -20,7 +20,7 @@
 
 //! Service implementation. Specialized wrapper over substrate service.
 
-use appchain_barnacle_runtime::{self, opaque::Block, RuntimeApi};
+use portalverse_runtime::{self, opaque::Block, RuntimeApi};
 use sc_client_api::{BlockBackend, ExecutorProvider};
 use sc_consensus_babe::{self, SlotProportion};
 use sc_executor::NativeElseWasmExecutor;
@@ -42,11 +42,11 @@ impl sc_executor::NativeExecutionDispatch for ExecutorDispatch {
 	type ExtendHostFunctions = ();
 
 	fn dispatch(method: &str, data: &[u8]) -> Option<Vec<u8>> {
-		appchain_barnacle_runtime::api::dispatch(method, data)
+		portalverse_runtime::api::dispatch(method, data)
 	}
 
 	fn native_version() -> sc_executor::NativeVersion {
-		appchain_barnacle_runtime::native_version()
+		portalverse_runtime::native_version()
 	}
 }
 

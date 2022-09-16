@@ -1,6 +1,6 @@
 [package]
-name = "appchain-barnacle"
-version = "0.9.28"
+name = "portalverse"
+version = "0.1.0"
 description = "A minimal node template for octopus appchain."
 authors = ["Octopus Network <hi@oct.network>"]
 homepage = "https://oct.network/"
@@ -14,7 +14,7 @@ build = "build.rs"
 targets = ["x86_64-unknown-linux-gnu"]
 
 [[bin]]
-name = "appchain-barnacle"
+name = "portalverse"
 
 [dependencies]
 clap = { version = "3.1.18", features = ["derive"] }
@@ -55,7 +55,7 @@ frame-benchmarking = { version = "4.0.0-dev", git = "https://github.com/parityte
 frame-benchmarking-cli = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v0.9.28" }
 
 # Local Dependencies
-appchain-barnacle-runtime = { version = "0.9.28", path = "../runtime" }
+portalverse-runtime = { version = "0.9.28", path = "../runtime" }
 
 # CLI-specific dependencies
 try-runtime-cli = { version = "0.10.0-dev", optional = true, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v0.9.28" }
@@ -96,7 +96,7 @@ substrate-build-script-utils = { version = "3.0.0", git = "https://github.com/pa
 
 [features]
 default = []
-runtime-benchmarks = ["appchain-barnacle-runtime/runtime-benchmarks"]
+runtime-benchmarks = ["portalverse-runtime/runtime-benchmarks"]
 # Enable features that allow the runtime to be tried and debugged. Name might be subject to change
 # in the near future.
-try-runtime = ["appchain-barnacle-runtime/try-runtime", "try-runtime-cli"]
+try-runtime = ["portalverse-runtime/try-runtime", "try-runtime-cli"]
