@@ -689,6 +689,11 @@ impl pallet_sudo::Config for Runtime {
 	type Call = Call;
 }
 
+impl pallet_portalverse_nexus::Config for Runtime {
+	type Event = Event;
+	type Weight = ();
+}
+
 // Create the runtime by composing the FRAME pallets that were previously configured.
 construct_runtime!(
 	pub struct Runtime
@@ -722,6 +727,7 @@ construct_runtime!(
 		Beefy: pallet_beefy,
 		MmrLeaf: pallet_beefy_mmr,
 		Sudo: pallet_sudo,
+		Nexus: pallet_portalverse_nexus,
 	}
 );
 
