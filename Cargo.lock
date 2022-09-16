@@ -199,6 +199,7 @@ dependencies = [
  "pallet-octopus-lpos",
  "pallet-octopus-upward-messages",
  "pallet-offences",
+ "pallet-portalverse-nexus",
  "pallet-randomness-collective-flip",
  "pallet-session",
  "pallet-sudo",
@@ -260,6 +261,12 @@ name = "arrayvec"
 version = "0.7.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8da52d66c7071e2e3fa2a1e5c6d088fec47b593032b254f5e980de8ea54454d6"
+
+[[package]]
+name = "ascii"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bbf56136a5198c7b01a49e3afcbef6cf84597273d298f54432926024107b0109"
 
 [[package]]
 name = "asn1_der"
@@ -4351,7 +4358,7 @@ dependencies = [
  "frame-system",
  "hex",
  "log",
- "pallet-octopus-support",
+ "pallet-octopus-support 4.0.0-pre.0 (git+https://github.com/octopus-network/octopus-pallets.git?branch=main)",
  "parity-scale-codec",
  "scale-info",
  "serde",
@@ -4376,7 +4383,7 @@ dependencies = [
  "hex",
  "log",
  "pallet-authorship",
- "pallet-octopus-support",
+ "pallet-octopus-support 4.0.0-pre.0 (git+https://github.com/octopus-network/octopus-pallets.git?branch=main)",
  "pallet-session",
  "parity-scale-codec",
  "scale-info",
@@ -4400,6 +4407,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "pallet-octopus-support"
+version = "4.0.0-pre.0"
+source = "git+https://github.com/octopus-network/octopus-pallets.git?branch=release-v0.9.28#6bc634321e1a92f7b42b4f8c186bbaf8ba7b5772"
+dependencies = [
+ "borsh",
+ "frame-support",
+ "parity-scale-codec",
+ "scale-info",
+ "sp-runtime",
+ "sp-std",
+]
+
+[[package]]
 name = "pallet-octopus-upward-messages"
 version = "4.0.0-pre.0"
 source = "git+https://github.com/octopus-network/octopus-pallets.git?branch=main#6bc634321e1a92f7b42b4f8c186bbaf8ba7b5772"
@@ -4408,7 +4428,7 @@ dependencies = [
  "frame-support",
  "frame-system",
  "log",
- "pallet-octopus-support",
+ "pallet-octopus-support 4.0.0-pre.0 (git+https://github.com/octopus-network/octopus-pallets.git?branch=main)",
  "parity-scale-codec",
  "scale-info",
  "sp-core",
@@ -4431,6 +4451,25 @@ dependencies = [
  "serde",
  "sp-runtime",
  "sp-staking",
+ "sp-std",
+]
+
+[[package]]
+name = "pallet-portalverse-nexus"
+version = "4.0.1-dev"
+source = "git+https://github.com/Portalverse-Network/Portalverse-Pallets?branch=master#c6cd3665ed798f0b02d03cfa9b884a2f11c88675"
+dependencies = [
+ "ascii",
+ "frame-support",
+ "frame-system",
+ "pallet-balances",
+ "pallet-octopus-support 4.0.0-pre.0 (git+https://github.com/octopus-network/octopus-pallets.git?branch=release-v0.9.28)",
+ "parity-scale-codec",
+ "scale-info",
+ "serde",
+ "sp-core",
+ "sp-io",
+ "sp-runtime",
  "sp-std",
 ]
 
