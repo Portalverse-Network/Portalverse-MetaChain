@@ -691,7 +691,8 @@ impl pallet_sudo::Config for Runtime {
 
 impl pallet_portalverse_nexus::Config for Runtime {
 	type Event = Event;
-	type Weight = ();
+	type MyCurrency = pallet_balances::Pallet<Runtime>;
+	type TimeProvider = pallet_timestamp::Pallet<Runtime>;
 }
 
 // Create the runtime by composing the FRAME pallets that were previously configured.

@@ -4337,7 +4337,7 @@ dependencies = [
 [[package]]
 name = "pallet-portalverse-nexus"
 version = "4.0.1-dev"
-source = "git+https://github.com/Portalverse-Network/Portalverse-Pallets?branch=master#832eb5d0ee8b554b3af69e003f8b2dba32747b6f"
+source = "git+https://github.com/Portalverse-Network/Portalverse-Pallets?branch=master#7caa01e3ff2de90b72fa3ca3e1b2267214cabf0c"
 dependencies = [
  "ascii",
  "frame-support",
