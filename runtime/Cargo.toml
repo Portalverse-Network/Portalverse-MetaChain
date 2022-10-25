@@ -73,7 +73,7 @@ pallet-octopus-lpos = { default-features = false, git = "https://github.com/octo
 pallet-octopus-upward-messages = { default-features = false, git = "https://github.com/octopus-network/octopus-pallets.git", branch = "release-v0.9.28" }
 
 # portalverse
-pallet-portalverse-nexus = { default-features = false, git = "https://github.com/Portalverse-Network/Portalverse-Pallets", branch = "master" }
+pallet-portalverse-nexus = { default-features = false, git = "ssh://git@github.com/Portalverse-Network/Portalverse-Pallets.git", branch = "master" }
 
 [build-dependencies]
 substrate-wasm-builder = { version = "5.0.0-dev", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v0.9.28" }
