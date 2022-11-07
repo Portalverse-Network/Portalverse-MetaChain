@@ -74,6 +74,10 @@ pallet-octopus-upward-messages = { default-features = false, git = "https://gith
 
 # portalverse
 pallet-portalverse-nexus = { default-features = false, git = "ssh://git@github.com/Portalverse-Network/Portalverse-Pallets.git", branch = "master" }
+#pallet-portalverse-nexus = { default-features = false, path = "../../Portalverse-Pallets/pallet-portalverse-nexus/"}
+pallet-portalverse-pors = { default-features = false, git = "ssh://git@github.com/Portalverse-Network/Portalverse-Pallets.git", branch = "master" }
+#pallet-portalverse-pors = { default-features = false, path = "../../Portalverse-Pallets/pallet-portalverse-pors/"}
+
 
 [build-dependencies]
 substrate-wasm-builder = { version = "5.0.0-dev", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v0.9.28" }
@@ -126,6 +130,7 @@ std = [
 	"pallet-octopus-appchain/std",
 	"pallet-octopus-lpos/std",
 	"pallet-octopus-upward-messages/std",
+	"pallet-portalverse-pors/std",
 ]
 runtime-benchmarks = [
 	"frame-benchmarking/runtime-benchmarks",

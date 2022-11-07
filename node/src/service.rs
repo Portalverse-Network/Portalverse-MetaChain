@@ -116,6 +116,15 @@ pub fn new_partial(
 		)?;
 	let client = Arc::new(client);
 
+	if config.offchain_worker.enabled {
+        let keystore = keystore_container.sync_keystore();
+        sp_keystore::SyncCryptoStore::sr25519_generate_new(
+            &*keystore,
+            portalverse_runtime::pallet_portalverse_pors::KEY_TYPE,
+            Some("//Alice"),
+            ).expect("Creating key with account Alice should succeed.");
+    }
+
 	let telemetry = telemetry.map(|(worker, telemetry)| {
 		task_manager.spawn_handle().spawn("telemetry", None, worker.run());
 		telemetry

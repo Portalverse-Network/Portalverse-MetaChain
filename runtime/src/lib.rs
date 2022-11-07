@@ -72,6 +72,9 @@ use sp_runtime::traits::Keccak256;
 use frame_support::PalletId;
 use sp_runtime::traits::ConvertInto;
 
+//pub use pallet_portalverse_pors;
+pub use pallet_portalverse_pors;
+
 /// An index to a block.
 pub type BlockNumber = u32;
 
@@ -691,8 +694,14 @@ impl pallet_sudo::Config for Runtime {
 
 impl pallet_portalverse_nexus::Config for Runtime {
 	type Event = Event;
-	type MyCurrency = pallet_balances::Pallet<Runtime>;
-	type TimeProvider = pallet_timestamp::Pallet<Runtime>;
+	type MyCurrency = Balances;
+	type TimeProvider = Timestamp;
+}
+
+impl pallet_portalverse_pors::Config for Runtime {
+	type Event = Event;
+	type AuthorityId = pallet_portalverse_pors::crypto::OcwAuthId;
+	//type RendererManager = Nexus;
 }
 
 // Create the runtime by composing the FRAME pallets that were previously configured.
@@ -729,6 +738,7 @@ construct_runtime!(
 		MmrLeaf: pallet_beefy_mmr,
 		Sudo: pallet_sudo,
 		Nexus: pallet_portalverse_nexus,
+		Pors : pallet_portalverse_pors,
 	}
 );
 
