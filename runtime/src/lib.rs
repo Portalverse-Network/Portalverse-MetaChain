@@ -698,9 +698,14 @@ impl pallet_portalverse_nexus::Config for Runtime {
 	type TimeProvider = Timestamp;
 }
 
+parameter_types! {
+	pub const ChallengePeriod: BlockNumber = 6 ; // 600 block = 1h
+}
+
 impl pallet_portalverse_pors::Config for Runtime {
 	type Event = Event;
 	type AuthorityId = pallet_portalverse_pors::crypto::OcwAuthId;
+	type ChallengePeriod = ChallengePeriod;
 	//type RendererManager = Nexus;
 }
 
