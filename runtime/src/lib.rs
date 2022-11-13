@@ -72,7 +72,6 @@ use sp_runtime::traits::Keccak256;
 use frame_support::PalletId;
 use sp_runtime::traits::ConvertInto;
 
-//pub use pallet_portalverse_pors;
 pub use pallet_portalverse_pors;
 
 /// An index to a block.
@@ -709,6 +708,18 @@ impl pallet_portalverse_pors::Config for Runtime {
 	//type RendererManager = Nexus;
 }
 
+parameter_types! {
+	pub const NativeTokenId: u32 = 0;
+}
+
+pub type TokenId = u32;
+
+impl pallet_portalverse_token::Config for Runtime {
+	type Event = Event;
+	type TokenId = TokenId;
+	type NativeTokenId = NativeTokenId;
+	type Weight = pallet_portalverse_token::weights::SubstrateWeight<Runtime>;
+}
 // Create the runtime by composing the FRAME pallets that were previously configured.
 construct_runtime!(
 	pub struct Runtime
@@ -744,6 +755,7 @@ construct_runtime!(
 		Sudo: pallet_sudo,
 		Nexus: pallet_portalverse_nexus,
 		Pors : pallet_portalverse_pors,
+		Token : pallet_portalverse_token,
 	}
 );
 

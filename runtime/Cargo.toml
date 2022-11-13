@@ -77,6 +77,8 @@ pallet-portalverse-nexus = { default-features = false, git = "ssh://git@github.c
 #pallet-portalverse-nexus = { default-features = false, path = "../../Portalverse-Pallets/pallet-portalverse-nexus/"}
 pallet-portalverse-pors = { default-features = false, git = "ssh://git@github.com/Portalverse-Network/Portalverse-Pallets.git", branch = "master" }
 #pallet-portalverse-pors = { default-features = false, path = "../../Portalverse-Pallets/pallet-portalverse-pors/"}
+pallet-portalverse-token = { default-features = false, git = "ssh://git@github.com/Portalverse-Network/Portalverse-Pallets.git", branch = "master" }
+#pallet-portalverse-token = { default-features = false, path = "../../Portalverse-Pallets/pallet-portalverse-token/"}
 
 
 [build-dependencies]
