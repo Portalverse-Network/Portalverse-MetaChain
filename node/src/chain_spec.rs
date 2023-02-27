@@ -256,5 +256,6 @@ fn testnet_genesis(
 				1000_000_000_000 * DOLLARS,
 			)],
 		},
+		tokens: Default::default(),
 	}
 }

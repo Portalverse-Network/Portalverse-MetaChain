@@ -73,12 +73,17 @@ pallet-octopus-lpos = { default-features = false, git = "https://github.com/octo
 pallet-octopus-upward-messages = { default-features = false, git = "https://github.com/octopus-network/octopus-pallets.git", branch = "release-v0.9.28" }
 
 # portalverse
-pallet-portalverse-nexus = { default-features = false, git = "ssh://git@github.com/Portalverse-Network/Portalverse-Pallets.git", branch = "master" }
+pallet-portalverse-nexus = { default-features = false, git = "ssh://git@github.com/Portalverse-Network/Portalverse-Pallets.git", branch = "pallet-token" }
 #pallet-portalverse-nexus = { default-features = false, path = "../../Portalverse-Pallets/pallet-portalverse-nexus/"}
-pallet-portalverse-pors = { default-features = false, git = "ssh://git@github.com/Portalverse-Network/Portalverse-Pallets.git", branch = "master" }
+pallet-portalverse-pors = { default-features = false, git = "ssh://git@github.com/Portalverse-Network/Portalverse-Pallets.git", branch = "pallet-token" }
 #pallet-portalverse-pors = { default-features = false, path = "../../Portalverse-Pallets/pallet-portalverse-pors/"}
-pallet-portalverse-token = { default-features = false, git = "ssh://git@github.com/Portalverse-Network/Portalverse-Pallets.git", branch = "master" }
+#pallet-portalverse-token = { default-features = false, git = "ssh://git@github.com/Portalverse-Network/Portalverse-Pallets.git", branch = "pallet-token" }
 #pallet-portalverse-token = { default-features = false, path = "../../Portalverse-Pallets/pallet-portalverse-token/"}
+
+# Orml pacakges
+orml-traits = {  git = "https://github.com/open-web3-stack/open-runtime-module-library", default-features = false , branch = "polkadot-v0.9.28"  }
+orml-tokens = {  git = "https://github.com/open-web3-stack/open-runtime-module-library", default-features = false , branch = "polkadot-v0.9.28"  }
+orml-currencies = {  git = "https://github.com/open-web3-stack/open-runtime-module-library", default-features = false , branch = "polkadot-v0.9.28"  }
 
 
 [build-dependencies]
@@ -133,6 +138,9 @@ std = [
 	"pallet-octopus-lpos/std",
 	"pallet-octopus-upward-messages/std",
 	"pallet-portalverse-pors/std",
+	"orml-currencies/std",
+    "orml-tokens/std",
+    "orml-traits/std", 
 ]
 runtime-benchmarks = [
 	"frame-benchmarking/runtime-benchmarks",

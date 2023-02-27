@@ -5,7 +5,7 @@
 // Make the WASM binary available.
 #[cfg(feature = "std")]
 include!(concat!(env!("OUT_DIR"), "/wasm_binary.rs"));
-
+use orml_traits::parameter_type_with_key;
 use pallet_grandpa::{
 	fg_primitives, AuthorityId as GrandpaId, AuthorityList as GrandpaAuthorityList,
 };
@@ -13,7 +13,7 @@ use sp_api::impl_runtime_apis;
 use sp_core::{crypto::KeyTypeId, OpaqueMetadata};
 use sp_runtime::{
 	create_runtime_str, generic, impl_opaque_keys,
-	traits::{AccountIdLookup, BlakeTwo256, Block as BlockT, IdentifyAccount, NumberFor, Verify},
+	traits::{AccountIdConversion, AccountIdLookup, BlakeTwo256, Block as BlockT, IdentifyAccount, NumberFor, Verify, Zero,},
 	transaction_validity::{TransactionSource, TransactionValidity},
 	ApplyExtrinsicResult, MultiSignature,
 };
@@ -26,7 +26,7 @@ use sp_version::RuntimeVersion;
 pub use frame_support::{
 	construct_runtime, parameter_types,
 	traits::{
-		ConstU128, ConstU32, ConstU64, ConstU8, KeyOwnerProofSystem, Randomness, StorageInfo,
+		ConstU128, ConstU32, ConstU64, ConstU8, KeyOwnerProofSystem, Randomness, StorageInfo,Everything
 	},
 	weights::{
 		constants::{BlockExecutionWeight, ExtrinsicBaseWeight, RocksDbWeight, WEIGHT_PER_SECOND},
@@ -695,6 +695,7 @@ impl pallet_portalverse_nexus::Config for Runtime {
 	type Event = Event;
 	type MyCurrency = Balances;
 	type TimeProvider = Timestamp;
+	// type MultiCurrency = Tokens;
 }
 
 parameter_types! {
@@ -708,18 +709,47 @@ impl pallet_portalverse_pors::Config for Runtime {
 	//type RendererManager = Nexus;
 }
 
+type CurrencyId = u32;
+parameter_type_with_key! {
+	pub ExistentialDeposits: |_currency_id: CurrencyId| -> Balance {
+		Zero::zero()
+	};
+}
+
 parameter_types! {
-	pub const NativeTokenId: u32 = 0;
+	pub TreasuryModuleAccount: AccountId = PalletId(*b"orml/dst").into_account_truncating();
 }
+pub type Amount = i128;
 
-pub type TokenId = u32;
-
-impl pallet_portalverse_token::Config for Runtime {
+impl orml_tokens::Config for Runtime {
 	type Event = Event;
-	type TokenId = TokenId;
-	type NativeTokenId = NativeTokenId;
-	type Weight = pallet_portalverse_token::weights::SubstrateWeight<Runtime>;
+	type Balance = Balance;
+	type Amount = Amount;
+	type CurrencyId = CurrencyId;
+	type WeightInfo = ();
+	type ExistentialDeposits = ExistentialDeposits;
+	type OnDust = orml_tokens::TransferDust<Runtime, TreasuryModuleAccount>;
+	type OnNewTokenAccount = ();
+	type OnKilledTokenAccount = ();
+	type MaxLocks = ();
+	type MaxReserves = ();
+	type ReserveIdentifier = [u8; 8];
+	type DustRemovalWhitelist = Everything;
 }
+
+// parameter_types! {
+// 	pub const NativeTokenId: u32 = 0;
+// }
+
+// pub type TokenId = u32;
+
+// impl pallet_portalverse_token::Config for Runtime {
+// 	type Event = Event;
+// 	type TokenId = TokenId;
+// 	type NativeTokenId = NativeTokenId;
+// 	type Weight = pallet_portalverse_token::weights::SubstrateWeight<Runtime>;
+// }
+
 // Create the runtime by composing the FRAME pallets that were previously configured.
 construct_runtime!(
 	pub struct Runtime
@@ -755,7 +785,8 @@ construct_runtime!(
 		Sudo: pallet_sudo,
 		Nexus: pallet_portalverse_nexus,
 		Pors : pallet_portalverse_pors,
-		Token : pallet_portalverse_token,
+		Tokens: orml_tokens,
+		// Token : pallet_portalverse_token,
 	}
 );
 
